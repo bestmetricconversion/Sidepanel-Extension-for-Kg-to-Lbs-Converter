@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KG to LBS Converter</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Smart Converter</p>
+        <h1>KG ⇄ LBS</h1>
+        <p class="sub">Convert kilograms to pounds instantly with chatbot + PDF table.</p>
+      </div>
+      <button id="openWebsite" class="site-btn" title="Open full converter">↗</button>
+    </section>
+
+    <section class="open-tool-card">
+      <div>
+        <strong>Need full converter page?</strong>
+        <span>Open KG to LBS tool in browser</span>
+      </div>
+      <button id="openWebsiteCard">Open Tool →</button>
+    </section>
+
+    <section class="card converter-card">
+      <div class="row top-row">
+        <label for="amount">Amount</label>
+        <button id="swapBtn" class="ghost">Swap</button>
+      </div>
+
+      <div class="input-grid">
+        <input id="amount" type="number" min="0" step="any" value="1" placeholder="Enter value" />
+        <select id="direction">
+          <option value="kg-lbs">KG to LBS</option>
+          <option value="lbs-kg">LBS to KG</option>
+        </select>
+      </div>
+
+      <div class="result-box">
+        <span id="resultLabel">1 KG =</span>
+        <strong id="result">2.20462 LBS</strong>
+        <small id="formula">Formula: pounds = kilograms × 2.2046226218</small>
+      </div>
+
+      <div class="actions copy-action">
+        <button id="copyBtn">Copy</button>
+      </div>
+
+      <div class="actions bottom-actions">
+        <button id="viewPdfBtn">View PDF</button>
+        <button id="clearBtn" class="secondary">Clear</button>
+      </div>
+
+      <div class="chips" id="quickChips"></div>
+    </section>
+
+    <section class="card pdf-card">
+      <h2>Auto PDF Table</h2>
+      <p class="hint">Generate a custom KG to LBS PDF table using From and To values. Maximum range gap: 10,000.</p>
+      <div class="range-grid two-cols">
+        <label>
+          From
+          <input id="minValue" type="number" min="0" step="any" value="1" />
+        </label>
+        <label>
+          To
+          <input id="maxValue" type="number" min="0" step="any" value="100" />
+        </label>
+      </div>
+      <button id="generateRangePdf" class="wide-btn">Generate PDF Table</button>
+      <p id="rangeError" class="error-text"></p>
+    </section>
+
+
+    <section class="card chatbot-card">
+      <div class="chat-head">
+        <div>
+          <h2>Converter Chatbot</h2>
+          <p>Ask: “10 kg to lbs” or “22 lbs to kg”</p>
+        </div>
+        <button id="resetChat" class="ghost">Reset</button>
+      </div>
+
+      <div id="chatMessages" class="chat-messages"></div>
+
+      <form id="chatForm" class="chat-form">
+        <input id="chatInput" type="text" placeholder="Example: 10 kg to lbs" autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <section class="card history-card">
+      <div class="row">
+        <h2>History</h2>
+        <button id="clearHistory" class="ghost">Clear</button>
+      </div>
+      <ul id="historyList"></ul>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
